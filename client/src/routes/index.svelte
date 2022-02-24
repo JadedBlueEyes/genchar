@@ -71,6 +71,12 @@
 	<div class=tixy>
 		<Tixy transform={transform}/>
 	</div>
-	<input type=text bind:value={transform} />
+    <label for="transform">Code transform</label>
+	<input id=transform type=text bind:value={transform} />
 	{#if transform.length > 32}<p>Function should be shorter!</p>{/if}
 </div>
+
+<svelte:head>
+    <title>Tixy live editor{ (transform && transform !== "cos(t + i + x * y)") ? " (" + transform + ")" : ""}</title>
+    <meta name="description" content="Tixy live editor lets you edit and run Tixy style code in real time. Currently editing the code {transform}">
+</svelte:head>
